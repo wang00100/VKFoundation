@@ -39,5 +39,9 @@
 @end
 
 void RUN_ON_UI_THREAD(dispatch_block_t block) {
-  dispatch_async(dispatch_get_main_queue(), block);
+  if ([NSThread isMainThread]) {
+    block();
+  } else {
+    dispatch_sync(dispatch_get_main_queue(), block);
+  }
 }

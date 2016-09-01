@@ -1,4 +1,16 @@
+//
+//  Created by Viki.
+//  Copyright (c) 2014 Viki Inc. All rights reserved.
+//
+
 #import "VKScrubber.h"
+#import "VKFoundation.h"
+
+#ifdef DEBUG
+  static const int ddLogLevel = LOG_LEVEL_WARN;
+#else
+  static const int ddLogLevel = LOG_LEVEL_WARN;
+#endif
 
 @interface VKScrubber ()
 @property (nonatomic, strong) UIImageView *scrubberGlow;
@@ -10,37 +22,34 @@
 
 - (void) initialize {
 
-  [self setMaximumTrackImage:[[UIImage imageNamed:@"v3_scrubber_track_min_4_4.png"]
+  [self setMaximumTrackImage:[[UIImage imageNamed:@"VKScrubber_max"]
       resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)]
       forState:UIControlStateNormal];
-  [self setMinimumTrackImage:[[UIImage imageNamed:@"v3_scrubber_track_max_4_4.png"]
+  [self setMinimumTrackImage:[[UIImage imageNamed:@"VKScrubber_min"]
       resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)]
       forState:UIControlStateNormal];
-  [self setThumbImage:[UIImage imageNamed:@"v3_scrubber_thumb.png"]
+  [self setThumbImage:[UIImage imageNamed:@"VKScrubber_thumb"]
       forState:UIControlStateNormal];
   
-  [self addTarget:self action:@selector(scrubbingDidBegin) forControlEvents:UIControlEventTouchDown];
-  [self addTarget:self action:@selector(scrubbingDidEnd) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpOutside|UIControlEventTouchCancel];
+  [self addTarget:self action:@selector(scrubbingBegin) forControlEvents:UIControlEventTouchDown];
+  [self addTarget:self action:@selector(scrubbingEnd) forControlEvents:UIControlEventTouchUpInside|UIControlEventTouchUpOutside|UIControlEventTouchCancel];
   [self addTarget:self action:@selector(scrubberValueChanged) forControlEvents:UIControlEventValueChanged];
   
   self.exclusiveTouch = YES;
 }
 
-- (void)scrubbingDidBegin {
-  [self.delegate scrubberDidBeginScrubbing:self];
+- (void)scrubbingBegin {
+  DDLogVerbose(@"SCRUBBER: Begin %f", self.value);
+  [self.delegate scrubbingBegin];
 }
 
-- (void)scrubbingDidEnd {
-  [self.delegate scrubberDidEndScrubbing:self];
+- (void)scrubbingEnd {
+  DDLogVerbose(@"SCRUBBER: End %f", self.value);
+  [self.delegate scrubbingEnd];
 }
 
 - (void)scrubberValueChanged {
-  [self.delegate scrubberValueDidChange:self];
-}
-
-- (void)setValue:(float)value animated:(BOOL)animated {
-  [super setValue:value animated:animated];
-  [self sendActionsForControlEvents:UIControlEventValueChanged];
+  DDLogVerbose(@"SCRUBBER: Change %f", self.value);
 }
 
 @end

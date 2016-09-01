@@ -1,41 +1,42 @@
 PODS:
   - CocoaLumberjack (1.7.0):
-    - CocoaLumberjack/Core (= 1.7.0)
-    - CocoaLumberjack/Extensions (= 1.7.0)
+    - CocoaLumberjack/Core
+    - CocoaLumberjack/Extensions
   - CocoaLumberjack/Core (1.7.0)
   - CocoaLumberjack/Extensions (1.7.0):
     - CocoaLumberjack/Core
-  - DTCoreText (1.6.16):
-    - DTFoundation/Core (~> 1.7.5)
-    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
-    - DTFoundation/DTHTMLParser (~> 1.7.5)
-    - DTFoundation/UIKit (~> 1.7.5)
-  - DTFoundation/Core (1.7.8)
-  - DTFoundation/DTAnimatedGIF (1.7.8)
-  - DTFoundation/DTHTMLParser (1.7.8):
+  - DTCoreText (1.6.11):
+    - DTFoundation/Core (~> 1.6.1)
+    - DTFoundation/DTHTMLParser (~> 1.6.1)
+    - DTFoundation/UIKit (~> 1.6.1)
+  - DTFoundation/Core (1.6.3)
+  - DTFoundation/DTHTMLParser (1.6.3):
     - DTFoundation/Core
-  - DTFoundation/UIKit (1.7.8):
+  - DTFoundation/UIKit (1.6.3):
     - DTFoundation/Core
-  - Expecta (0.3.1)
+  - Expecta (0.3.0)
+  - FXImageView (1.3.3)
   - OCMock (2.2.4)
   - Reachability (3.1.1)
   - Specta (0.2.1)
 
 DEPENDENCIES:
   - CocoaLumberjack (~> 1.7.0)
-  - DTCoreText (~> 1.6.16)
-  - Expecta (~> 0.3.1)
+  - DTCoreText (~> 1.6.11)
+  - Expecta (~> 0.3.0)
+  - FXImageView (~> 1.3.3)
   - OCMock (~> 2.2.1)
   - Reachability (~> 3.1.1)
   - Specta (~> 0.2.1)
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: a2213b8410917a1a5ecfc5c63a4206edc24d3a5b
-  DTCoreText: 934a16fe9ffdd169c96261721b39dc312b75713d
-  DTFoundation: 46e2b2fafe78d67febfd8d1f85fe9845a093f00e
-  Expecta: a354d4633409dd9fe8c4f5ff5130426adbe31628
-  OCMock: a6a7dc0e3997fb9f35d99f72528698ebf60d64f2
-  Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
-  Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
+  CocoaLumberjack: be87113f649942f020a37c061c58009b6ee5ff68
+  DTCoreText: 4d56bb74ff05a3b2415fc15fccc4b5689ed3119c
+  DTFoundation: 42939bcb968b331673ae4992289bf0f761b588a4
+  Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
+  FXImageView: 2c360e513710b81ac7db98f768fee2e8f36bcffb
+  OCMock: 5008fae4b4789b8fc3e48cd7660f2eb5ef8ce89e
+  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
-COCOAPODS: 0.39.0
+COCOAPODS: 0.32.1
